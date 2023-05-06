@@ -1,0 +1,398 @@
+import os.path
+import tkinter as tk
+import webbrowser
+from ctypes import windll
+from time import sleep
+from tkinter import *
+from tkinter import messagebox
+from tkinter.messagebox import showinfo
+from tkinter.ttk import Radiobutton
+import keyboard
+
+
+def check_saved_info():
+    try:
+        with open("check_file.txt", "r", encoding="utf-8") as my_file:
+            file_contents = my_file.read()
+            if "combination for the first key:" in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "combination for the first key:" in line:
+                        key_list_1 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + NumLock", lambda: keyboard.press(key_list_1))
+                        lbl1_2.configure(text=key_list_1)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            elif "link for the first key," in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "link for the first key:" in line:
+                        key_list_1 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + NumLock",
+                                            lambda: keyboard.release(webbrowser.open_new_tab(key_list_1)))
+                        lbl1_2.configure(text=key_list_1)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            else:
+                messagebox.showinfo("Сообщение", "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def check_saved_info2():
+    try:
+        with open("check_file.txt", "r", encoding="utf-8") as my_file:
+            file_contents = my_file.read()
+            if "combination for the second key:" in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "combination for the second key:" in line:
+                        key_list_2 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + PageUp", lambda: keyboard.press(key_list_2))
+                        lbl2_2.configure(text=key_list_2)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            elif "link for the second key," in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "link for the second key:" in line:
+                        key_list_2 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + PageUp",
+                                            lambda: keyboard.release(webbrowser.open_new_tab(key_list_2)))
+                        lbl2_2.configure(text=key_list_2)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            else:
+                messagebox.showinfo("Сообщение", "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def check_saved_info3():
+    try:
+        with open("check_file.txt", "r", encoding="utf-8") as my_file:
+            file_contents = my_file.read()
+            if "combination for the second key:" in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "combination for the third key:" in line:
+                        key_list_3 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + PageDown", lambda: keyboard.press(key_list_3))
+                        lbl3_2.configure(text=key_list_3)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            elif "link for the third key," in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "link for the third key:" in line:
+                        key_list_3 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + PageDown",
+                                            lambda: keyboard.release(webbrowser.open_new_tab(key_list_3)))
+                        lbl3_2.configure(text=key_list_3)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            else:
+                messagebox.showinfo("Сообщение", "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def check_saved_info4():
+    try:
+        with open("check_file.txt", "r", encoding="utf-8") as my_file:
+            file_contents = my_file.read()
+            if "combination for the fourth key:" in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "combination for the fourth key:" in line:
+                        key_list_4 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + End", lambda: keyboard.press(key_list_4))
+                        lbl3_2.configure(text=key_list_4)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            elif "link for the fourth key:" in file_contents:
+                my_file.seek(0)
+                for line in my_file:
+                    if "link for the third key:" in line:
+                        key_list_4 = line.split(": ")[1].strip()
+                        keyboard.add_hotkey("ctrl + win + End",
+                                            lambda: keyboard.release(webbrowser.open_new_tab(key_list_4)))
+                        lbl3_2.configure(text=key_list_4)
+                        break
+                else:
+                    messagebox.showinfo("Сообщение",
+                                        "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+            else:
+                messagebox.showinfo("Сообщение", "Нет сохраненных данных для выполнения функции. Введите новые данные.")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def web_link1():
+    try:
+        with open("check_file.txt", "r+", encoding="utf-8") as my_file:
+            if selected.get() == 1:
+                sleep(0.25)
+                key = keyboard.read_hotkey(suppress=False)
+                key_list_1 = key
+                my_file.write(f"combination for the first key: {key_list_1}\n")
+                keyboard.add_hotkey("ctrl + win + NumLock", lambda: keyboard.press(key))
+                lbl1_2.configure(text=key)
+            elif selected.get() == 2:
+                my_file.write(f"link for the first key: {EnterText1.get()}\n")
+                keyboard.add_hotkey("ctrl + win + NumLock",
+                                    lambda: keyboard.release(webbrowser.open_new_tab(EnterText1.get())))
+                lbl1_2.configure(text="Вы сохранили ссылку на клавишу")
+            elif selected.get() == 3:
+                answer = messagebox.askyesno("Подтверждение", "Вы уверены, что хотите удалить все сохраненные данные?")
+                if answer:
+                    my_file.seek(0)
+                    lines = my_file.readlines()
+                    my_file.seek(0)
+                    my_file.truncate()
+                    for line in lines:
+                        if "link for the first key:" not in line and "combination for the first key:" not in line:
+                            my_file.write(line)
+                    lbl1_2.configure(text="Все сохраненные данные удалены")
+                else:
+                    lbl1_2.configure(text="Удаление отменено")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def web_link2():
+    try:
+        with open("check_file.txt", "r+", encoding="utf-8") as my_file:
+            if selected.get() == 4:
+                sleep(0.25)
+                key = keyboard.read_hotkey(suppress=False)
+                key_list_2 = key
+                my_file.write(f"combination for the second key: {key_list_2}\n")
+                keyboard.add_hotkey("ctrl + win + PageUp", lambda: keyboard.press(key))
+                lbl2_2.configure(text=key)
+            elif selected.get() == 5:
+                my_file.write(f"link for the second key: {EnterText2.get()}\n")
+                keyboard.add_hotkey("ctrl + win + PageUp",
+                                    lambda: keyboard.release(webbrowser.open_new_tab(EnterText2.get())))
+                lbl2_2.configure(text="Вы сохранили ссылку на клавишу")
+            elif selected.get() == 6:
+                answer = messagebox.askyesno("Подтверждение", "Вы уверены, что хотите удалить все сохраненные данные?")
+                if answer:
+                    my_file.seek(0)
+                    lines = my_file.readlines()
+                    my_file.seek(0)
+                    my_file.truncate()
+                    for line in lines:
+                        if "link for the second key:" not in line and "combination for the second key:" not in line:
+                            my_file.write(line)
+                    lbl2_2.configure(text="Все сохраненные данные удалены")
+                else:
+                    lbl2_2.configure(text="Удаление отменено")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def web_link3():
+    try:
+        with open("check_file.txt", "r+", encoding="utf-8") as my_file:
+            if selected.get() == 7:
+                sleep(0.25)
+                key = keyboard.read_hotkey(suppress=False)
+                key_list_3 = key
+                my_file.write(f"combination for the third key: {key_list_3}\n")
+                keyboard.add_hotkey("ctrl + win + PageDown", lambda: keyboard.press(key))
+                lbl3_2.configure(text=key)
+            elif selected.get() == 8:
+                my_file.write(f"link for the third key: {EnterText3.get()}\n")
+                keyboard.add_hotkey("ctrl + win + PageDown",
+                                    lambda: keyboard.release(webbrowser.open_new_tab(EnterText3.get())))
+                lbl3_2.configure(text="Вы сохранили ссылку на клавишу")
+            elif selected.get() == 9:
+                answer = messagebox.askyesno("Подтверждение", "Вы уверены, что хотите удалить все сохраненные данные?")
+                if answer:
+                    my_file.seek(0)
+                    lines = my_file.readlines()
+                    my_file.seek(0)
+                    my_file.truncate()
+                    for line in lines:
+                        if "link for the third key:" not in line and "combination for the third key:" not in line:
+                            my_file.write(line)
+                    lbl3_2.configure(text="Все сохраненные данные удалены")
+                else:
+                    lbl3_2.configure(text="Удаление отменено")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def web_link4():
+    try:
+        with open("check_file.txt", "r+", encoding="utf-8") as my_file:
+            if selected.get() == 10:
+                sleep(0.25)
+                key = keyboard.read_hotkey(suppress=False)
+                key_list_4 = key
+                my_file.write(f"combination for the fourth key: {key_list_4}\n")
+                keyboard.add_hotkey("ctrl + win + End", lambda: keyboard.press(key))
+                lbl4_2.configure(text=key)
+            elif selected.get() == 11:
+                my_file.write(f"link for the fourth key: {EnterText4.get()}\n")
+                keyboard.add_hotkey("ctrl + win + End",
+                                    lambda: keyboard.release(webbrowser.open_new_tab(EnterText4.get())))
+                lbl4_2.configure(text="Вы сохранили ссылку на клавишу")
+            elif selected.get() == 12:
+                answer = messagebox.askyesno("Подтверждение", "Вы уверены, что хотите удалить все сохраненные данные?")
+                if answer:
+                    my_file.seek(0)
+                lines = my_file.readlines()
+                my_file.seek(0)
+                my_file.truncate()
+                for line in lines:
+                    if "link for the fourth key:" not in line and "combination for the fourth key:" not in line:
+                        my_file.write(line)
+                lbl4_2.configure(text="Все сохраненные данные удалены")
+            else:
+                lbl4_2.configure(text="Удаление отменено")
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+def on_closing():
+    try:
+        if messagebox.askokcancel("Выход из приложения", "Хотите выйти из приложения?"):
+            window.destroy()
+    except Warning:
+        return
+
+
+def open_info():
+    try:
+        showinfo(title="Инструкция", message=f'''1) Если вы хотите сохрнать комбинацию на выбранную клавишу выполните следующие дейстивя:
+    • Шаг 1-ый, Выберите кнопку <<Комбинация>>.
+    • Шаг 2-ой, Нажмите на кнопку <<Записать>> и затем введите комбинцию.
+    • Выполнив эти шаги, вы увидите записанную комбинацию в соответвующем поле, что будет свидетельствовать о успешно сохранении комбинации.
+
+
+2) Если вы хотите сохрнать ссылку на выбранную клавишу выполните следующие дейстивя:
+    • Шаг 1-ый, Выберите кнопку <<Ссылка>>.
+    • Шаг 2-ой, Скопируйте ссылку из браузера.
+    • Шаг 3-ий, Вставьте ссылку в соответсвенное поле для ввода и нажмите на клавишу <<Записать>>.
+    • Выполнив эти шаги, вы увидите сообщении об успешном сохранении ссылки в соответвующем поле.
+    • Примичание: Вы можете сохранить на одну клавишу сразу несколько ссылок, для этого после того как вы сохранили первую ссылку, сотрите её и вставьте новую, после нажмите на клавишу <<Записать>>.
+    • Внимание! Не рекомендуем сохранять слишком большое количесво ссылок на одну клавишу!
+
+
+3) Если вы хотите удалить комбинацию или ссылку с клавиши, выполните следующие действия:
+    • Шаг 1-ый, Выберите кнопку <<Удалить>>.
+    • Шаг 2-ой, Нажмите кнопку <<Записать>>.
+    • Выполнив эти шаги, вы увидите сообщении об удалении комбинации/ссылки в соответвующем поле.
+''')
+    except Exception as e:
+        messagebox.showerror("Ошибка", str(e))
+
+
+window = tk.Tk()
+window.protocol("WM_DELETE_WINDOW", on_closing)
+basedir = os.path.dirname(__file__)
+try:
+    myappid = "mycompany.myproduct.subproduct.version"
+    windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+except ImportError:
+    pass
+window.iconbitmap(os.path.join(basedir, "SK.ico"))
+window.title("Smart Keyboard")
+window.resizable(width=False, height=False)
+window.wm_attributes("-topmost")
+window.geometry('700x550')
+window["bg"] = "gray"
+
+lbl1_2 = tk.Label(window, width="40", height="5")
+lbl1_2.place(x=365, y=64)
+
+lbl2_2 = tk.Label(window, width="40", height="5")
+lbl2_2.place(x=365, y=179)
+
+lbl3_2 = tk.Label(window, width="40", height="5")
+lbl3_2.place(x=365, y=289)
+
+lbl4_2 = tk.Label(window, width="40", height="5")
+lbl4_2.place(x=365, y=399)
+
+btn_info = tk.Button(window, text="Инструкция", command=open_info, width="10", height="1",
+                     fg="black", bg="#1faee9")
+btn_info.place(x=50, y=20)
+
+EnterText1 = tk.Entry(fg="black", width=48)
+EnterText1.place(x=49, y=65)
+btn1 = tk.Button(window, text="Записать", command=web_link1, width="40", height="2",
+                 fg="black", bg="white")
+btn1.place(x=50, y=105)
+
+EnterText2 = tk.Entry(fg="black", width=48)
+EnterText2.place(x=49, y=180)
+btn2 = tk.Button(window, text="Записать", command=web_link2, width="40", height="2",
+                 fg="black", bg="white")
+btn2.place(x=50, y=220)
+
+EnterText3 = tk.Entry(fg="black", width=48)
+EnterText3.place(x=49, y=290)
+btn3 = tk.Button(window, text="Записать", command=web_link3, width="40", height="2",
+                 fg="black", bg="white")
+btn3.place(x=50, y=330)
+
+EnterText4 = tk.Entry(fg="black", width=48)
+EnterText4.place(x=49, y=400)
+btn4 = tk.Button(window, text="Записать", command=web_link4, width="40", height="2",
+                 fg="black", bg="white")
+btn4.place(x=50, y=440)
+
+selected = IntVar()
+rad1 = Radiobutton(window, text='Комбинация', value=1, width=15, variable=selected)
+rad2 = Radiobutton(window, text='Сылка', value=2, width=16, variable=selected)
+rad3 = Radiobutton(window, text='Удалить', value=3, width=13, variable=selected)
+
+rad1.place(x=50, y=84)
+rad2.place(x=160, y=84)
+rad3.place(x=240, y=84)
+
+rad4 = Radiobutton(window, text='Комбинация', value=4, width=15, variable=selected)
+rad5 = Radiobutton(window, text='Сылка', value=5, width=16, variable=selected)
+rad6 = Radiobutton(window, text='Удалить', value=6, width=13, variable=selected)
+
+rad4.place(x=50, y=200)
+rad5.place(x=160, y=200)
+rad6.place(x=240, y=200)
+
+rad7 = Radiobutton(window, text='Комбинация', value=7, width=15, variable=selected)
+rad8 = Radiobutton(window, text='Сылка', value=8, width=16, variable=selected)
+rad9 = Radiobutton(window, text='Удалить', value=9, width=13, variable=selected)
+
+rad7.place(x=50, y=310)
+rad8.place(x=160, y=310)
+rad9.place(x=240, y=310)
+
+rad10 = Radiobutton(window, text='Комбинация', value=10, width=15, variable=selected)
+rad11 = Radiobutton(window, text='Сылка', value=11, width=16, variable=selected)
+rad12 = Radiobutton(window, text='Удалить', value=12, width=13, variable=selected)
+
+rad10.place(x=50, y=420)
+rad11.place(x=160, y=420)
+rad12.place(x=240, y=420)
+check_saved_info()
+window.mainloop()
+
+while True:
+    keyboard.wait()
