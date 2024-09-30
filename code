@@ -280,7 +280,15 @@ def on_closing():
 
 def open_info():
     try:
-        showinfo(title="Инструкция", message=f'''1) Если вы хотите сохрнать комбинацию на выбранную клавишу выполните следующие дейстивя:
+        showinfo(title="Инструкция", message=f'''Для использования данной программы необходимо определённая модель клавиатуры и специальная настройка
+ссылка на клавиатуру: https://aliexpress.ru/item/1005004352891363.html?srcSns=sns_WhatsApp&businessType=ProductDetail&spreadType=socialShare&tt=MG
+ссылка на ПО: http://www.videyt.com/en/DownList/1.html
+Необходимо с помомщью ПО насторить клавиши клавиатуры следующим образом:
+1 клавиаша: ctrl + win + NumLock
+2 клавиаша: ctrl + win + PageUp
+3 клавиаша: ctrl + win + PageDown
+4 клавиаша: ctrl + win + End
+1) Если вы хотите сохрнать комбинацию на выбранную клавишу выполните следующие дейстивя:
     • Шаг 1-ый, Выберите кнопку <<Комбинация>>.
     • Шаг 2-ой, Нажмите на кнопку <<Записать>> и затем введите комбинцию.
     • Выполнив эти шаги, вы увидите записанную комбинацию в соответвующем поле, что будет свидетельствовать о успешно сохранении комбинации.
@@ -312,7 +320,10 @@ try:
     windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
 except ImportError:
     pass
-window.iconbitmap(os.path.join(basedir, "SK.ico"))
+try:
+    window.iconbitmap(os.path.join(basedir, "SK.ico"))
+except (TclError, FileNotFoundError):
+    pass
 window.title("Smart Keyboard")
 window.resizable(width=False, height=False)
 window.wm_attributes("-topmost")
